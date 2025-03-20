@@ -21,6 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()   // CSRF 필터 끔(PostMan API 확인을 위해)
             .authorizeRequests()    // URL 기반 인가 설정
                 .antMatchers("/user/**").hasRole("USER")    // USER 권한 사용자만 접근 가능
                 .antMatchers("/admin/**").hasRole("ADMIN")    // ADMIN 권한 사용자만 접근 가능
