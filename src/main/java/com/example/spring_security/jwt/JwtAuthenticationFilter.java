@@ -72,7 +72,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
             // 가져온 토큰이 유효한지와 토큰에 포함된 사용자 이름이 userDetails의 사용자이름과 동일한지 검사
-            if (jwtTokenProvider.validateTokem(jwt, userDetails.getUsername())) {
+            if (jwtTokenProvider.validateToken(jwt, userDetails.getUsername())) {
                 // 인증된 사용자 주체, 자격증명을 인증토큰에 저장
                 UsernamePasswordAuthenticationToken auth =
                         new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());

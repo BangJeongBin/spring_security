@@ -24,7 +24,7 @@ public class JwtTokenProvider {
     // setExpiration : 클레임에 토큰 만료시간 저장 (exp)
     // signWith : 서명과 암호화 방법 지정
     // compact : 서명과 클레임을 조합해서 토큰 생성
-    public String generateTiken(String username) {
+    public String generateToken(String username) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + validity);
 
@@ -35,7 +35,7 @@ public class JwtTokenProvider {
 
 
     // 주어진 JWT가 유효한지, 토큰의 소유자가 맞는지 확인
-    public boolean validateTokem(String token, String username) {
+    public boolean validateToken(String token, String username) {
         final String tokenUsername = extractUsername(token);
 
         return (tokenUsername.equals(username) && !isTokenExpired(token));
