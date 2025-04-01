@@ -69,6 +69,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         // 요청정보에 대해 아직 아무런 인증이 되지 않았다면 (중복인증 방지)
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             // 추출된 username을 이용해서 사용자 정보를 DB에서 조회
+            log.info(">> JwtAuthenticationFilter - loadUserByUsername 호출");
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
             // 가져온 토큰이 유효한지와 토큰에 포함된 사용자 이름이 userDetails의 사용자이름과 동일한지 검사

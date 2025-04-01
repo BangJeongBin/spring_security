@@ -8,11 +8,12 @@
 </head>
 <body>
   <main id="content">
-    <h2>회원정보</h2>
-    <p sec:authorize="isAnonymous()">로그인</p>
-    <p sec:authorize="isAuthenticated()">로그아웃</p>
+      <h2>회원정보</h2>
+      <p sec:authorize="isAnonymous()">로그인</p>
+      <p sec:authorize="isAuthenticated()">
+          <a href="/member/logout">로그아웃</a></p>
 
-    <div id="myinfo">
+      <div id="myinfo">
       <table class="table table-bordered mb-0">
         <!-- colgroup : 테이블의 컬럼 너비, 스타일 지정을 편하게 하기 위해 사용 -->
         <colgroup>

@@ -17,6 +17,7 @@ public class JwtTokenProvider {
     @Value("${jwt.validity}")
     private long validity;
 
+
     // 주어진 username을 기반으로 새로운 jwt 생성
     // 클레임 : 토큰에서 사용할 정보 조각을 의미, 보통 키-값 형태로 저장
     // setSubject : 클레임에 사용자 정보 저장 (sub)
